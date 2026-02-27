@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASi Kupu-kupu - Kalkulator PO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">DASi Kupu-kupu</div>
+
+<div class="container" id="pagePO">
+    <button class="btnTambahProduk" onclick="pindahHalaman('pageProduk')">
+        + Tambah Master Produk
+    </button>
+
+    <div class="title">Input Order</div>
+    
+    <label>Cari Produk :</label>
+    <div class="autocomplete">
+        <input id="inputProduk" placeholder="Ketik nama produk..." autocomplete="off">
+        <div id="suggestionBox" class="suggestion-box hidden"></div>
+    </div>
+
+    <label>HNA :</label>
+    <input type="text" id="inputHna" placeholder="0">
+
+    <div class="row">
+        <div class="col">
+            <label>QTY :</label>
+            <input type="number" id="inputQty" value="1" min="1">
+        </div>
+        <div class="col">
+            <label>DISKON (%) :</label>
+            <input type="number" id="inputDiskon" value="0" min="0">
+        </div>
+    </div>
+
+    <div class="ppnbox">
+        <input type="checkbox" id="checkPpn">
+        <label for="checkPpn">PPN 11%</label>
+    </div>
+
+    <button class="btnOrder" onclick="tambahOrder()">Tambah ke Daftar</button>
+
+    <div class="title">Daftar Order</div>
+    <div id="orderList"></div>
+
+    <div class="total-section">
+        <div class="total-label">Total Bayar</div>
+        <div class="grand-total">Rp <span id="displayGrandTotal">0</span></div>
+    </div>
+
+    <div class="saweria">
+        <a href="https://saweria.co/siisyul" target="_blank">☕ Klik disini 👉 Buat Si Akang ngopi</a>
+    </div>
+</div>
+
+<div class="container hidden" id="pageProduk">
+    <div class="title">Master Produk</div>
+    <label>Nama Produk</label>
+    <input id="newNama">
+    <label>Harga (HNA)</label>
+    <input id="newHarga">
+    <label>Isi</label>
+    <input type="number" id="newIsi" value="1">
+    <button class="btnTambahProduk" onclick="simpanProdukMaster()">Simpan</button>
+    <button class="btnBack" onclick="pindahHalaman('pagePO')">Kembali</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
